@@ -10,6 +10,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :days_to_ship
 
   with_options presence: true do
+    validates :image
     validates :name
     validates :description
     validates :category
@@ -26,5 +27,5 @@ class Item < ApplicationRecord
     validates :days_to_ship_id
     validates :status_id
   end
-  
+
 end
