@@ -131,11 +131,12 @@
 
     <ul class='item-lists'>
       <%  if @items.exists?  %>
-        
         <% @items.each do |item| %>
-        <%= render partial: 'items',locals: { item: item } %>
-        <% end %>
 
+        <%= render partial: 'items',locals: { item: item } %>
+
+        <% end %>
+        
       <% else %>
       <%# 商品がない場合のダミー %>
       <li class='list'>
