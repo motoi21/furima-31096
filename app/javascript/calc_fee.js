@@ -10,4 +10,4 @@ function calcFee (){
   });
 }
 
-window.addEventListener('load', calcFee);
+setInterval(calcFee, 1000)
