@@ -70,7 +70,7 @@ RSpec.describe Item, type: :model do
       end
 
       it 'priceの値が9999999円を超えると出品できないこと' do
-        @item.price = 10000000
+        @item.price = 10_000_000
         @item.valid?
         expect(@item.errors.full_messages).to include('Price Out of setting range')
       end
