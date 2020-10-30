@@ -1,6 +1,7 @@
 class PurchasesController < ApplicationController
-  def new
+  def index
     @purchase_shipping = PurchaseShipping.new
+    @item = Item.find(params[:item_id])
   end
 
   def create
