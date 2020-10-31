@@ -13,12 +13,7 @@ class PurchasesController < ApplicationController
     @item = Item.find(params[:item_id])
     @purchase_shipping = PurchaseShipping.new(purchase_params)
     if @purchase_shipping.valid?
-      Payjp.api_key = "sk_test_1eea521a3929225a8b7a6158"
-      Payjp::Charge.create(
-        amount: @item.price,
-        card: purchase_params[:token],
-        currency: 'jpy'
-      )
+      pay_item
       @purchase_shipping.save
       redirect_to root_path
     else 
@@ -38,9 +33,18 @@ class PurchasesController < ApplicationController
   def move_to_index
     if user_signed_in? && current_user.id == @item.user.id
       redirect_to root_path
-    elsif Purchase.existss?(item_id: @item.id)
+    elsif Purchase.exists?(item_id: @item.id)
       redirect_to root_path
     end
+  end
+
+  def pay_item
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    Payjp::Charge.create(
+      amount: @item.price,
+      card: purchase_params[:token],
+      currency: 'jpy'
+      )
   end
 
 end
