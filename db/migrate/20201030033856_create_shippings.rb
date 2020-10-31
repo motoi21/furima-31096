@@ -6,7 +6,7 @@ class CreateShippings < ActiveRecord::Migration[6.0]
       t.string :city, null: false
       t.string :address, null: false
       t.string :building
-      t.integer :tel, null:false
+      t.string :tel, null:false
       t.references :purchase, foreign_key: true
       t.timestamps
     end
