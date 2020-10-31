@@ -71,3 +71,4 @@
 - belongs_to purchases
 
 - belongs_to_active_hash :prefecture
+
