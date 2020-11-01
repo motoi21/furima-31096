@@ -62,6 +62,7 @@
 | prefecture_id | integer    | null: false, ActiveHashを使用 |
 | city          | string     | null:false                   |
 | address       | string     | null: false                  |
+| building      | string     |                              |
 | tel           | integer    | null: false                  |
 | purchase      | references | foreign_key: true            |
 
@@ -70,3 +71,4 @@
 - belongs_to purchases
 
 - belongs_to_active_hash :prefecture
+
