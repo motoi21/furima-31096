@@ -6,11 +6,9 @@ class PurchasesController < ApplicationController
 
   def index
     @purchase_shipping = PurchaseShipping.new
-    @item = Item.find(params[:item_id])
   end
 
   def create
-    @item = Item.find(params[:item_id])
     @purchase_shipping = PurchaseShipping.new(purchase_params)
     if @purchase_shipping.valid?
       pay_item
